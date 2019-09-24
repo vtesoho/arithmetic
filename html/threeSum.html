@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>三数之和</title>
+</head>
+<script>
+function threeSum(x){
+  arr = []
+  length = x.length
+  x.sort((a, b) => a - b)
+  if(x[0] <= 0 && x[length-1] >= 0){
+    for (var i = 0; i < length - 2; i++) {
+      if (x[i] > 0) break
+      let first = i + 1
+      let last = length - 1
+      do {
+        if (first >= last || x[i] * x[last] > 0) break
+        ls = x[i] + x[first] + x[last]
+        if(ls === 0){
+          arr.push([x[i],x[first],x[last]])
+        }
+        if(ls <= 0){
+          while (condition) {
+            // statement
+          }
+        }
+      }
+    }  
+  }
+  
+  
+
+
+  console.log(x)
+  
+}
+console.log(threeSum([-1, 0, 1, 2, -1, -4]))
+</script>
+<body>
+  
+</body>
+</html>

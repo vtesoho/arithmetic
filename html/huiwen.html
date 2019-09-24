@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>回文</title>
+</head>
+<script>
+function isPalindrome(x){
+  if(x < 0){
+    return false
+  }
+  if(x == 0 || x < 10){
+    return true
+  }
+  var i = 1
+  var arr = []
+  var dd = x / i
+  while (dd > 1){
+    i = i*10
+    dd =  x / i
+  }
+  if(i != 10){
+    i = i / 10
+  }
+  while (i >= 1) {
+    var ee = parseInt(x/i)
+    if(x < i){
+      arr.push(0)
+    }else{
+      arr.push(ee)
+      x = x-(ee * i)
+    }
+    i = i/10
+  }
+  for (var i = 0; i < parseInt(arr.length/2); i++) {
+    if(arr[i] != arr[arr.length-i-1]){
+      return false
+    } 
+  }
+  if(i === 1){
+    return true
+  }
+  return true
+  
+
+  
+}
+console.log(isPalindrome(10000222001))
+</script>
+<body>
+  
+</body>
+</html>
