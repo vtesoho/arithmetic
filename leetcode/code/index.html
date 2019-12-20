@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+    function test (str){
+      let phone = ['','','abc','def','ghi','jkl','mno','pqrs','tuv','wxyz']
+
+      let inum = str.split('')
+      let strArr = []
+      inum.forEach(item => {
+        strArr.push(phone[item])
+      });
+
+      for (let i = 1; i < strArr.length; i++) {
+        strArr[0] = globale(strArr[0],strArr[i])
+      }
+
+      console.log(strArr[0])
+      
+    }
+
+    function globale(arra,arrb){
+      var rule = []
+      for (let i = 0; i < arra.length; i++) {
+        for (let b = 0; b < arrb.length; b++) {
+          rule.push(arra[i]+arrb[b])
+        }
+      }
+      return rule
+    }
+
+    test('23')
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

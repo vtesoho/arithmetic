@@ -16,7 +16,7 @@ function test(str) {
 }
 function matcha(str){
   for (let i = 0; i < str.length; i++) {
-    if(str[0] == 0)
+    if(str[0] == 0){}
     
   }
 }
