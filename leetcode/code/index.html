@@ -6,35 +6,81 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <script>
-    function test (str){
-      let phone = ['','','abc','def','ghi','jkl','mno','pqrs','tuv','wxyz']
+    // function test (str){
+    //   let phone = ['','','abc','def','ghi','jkl','mno','pqrs','tuv','wxyz']
 
-      let inum = str.split('')
-      let strArr = []
-      inum.forEach(item => {
-        strArr.push(phone[item])
-      });
+    //   let inum = str.split('')
+    //   let strArr = []
+    //   inum.forEach(item => {
+    //     strArr.push(phone[item])
+    //   });
 
-      for (let i = 1; i < strArr.length; i++) {
-        strArr[0] = globale(strArr[0],strArr[i])
-      }
+    //   for (let i = 1; i < strArr.length; i++) {
+    //     strArr[0] = globale(strArr[0],strArr[i])
+    //   }
 
-      console.log(strArr[0])
+    //   console.log(strArr[0])
       
-    }
+    // }
 
-    function globale(arra,arrb){
-      var rule = []
-      for (let i = 0; i < arra.length; i++) {
-        for (let b = 0; b < arrb.length; b++) {
-          rule.push(arra[i]+arrb[b])
-        }
+    // function globale(arra,arrb){
+    //   var rule = []
+    //   for (let i = 0; i < arra.length; i++) {
+    //     for (let b = 0; b < arrb.length; b++) {
+    //       rule.push(arra[i]+arrb[b])
+    //     }
+    //   }
+    //   return rule
+    // }
+
+    // test('23')
+
+    function hasGroupsSizeX(deck) {
+      if(deck.length <= 1){
+    return false
+  }
+  let maxGroupItemNum = 0
+  let currenGroupItemNum = 0
+  deck.sort(function (a,b) {return a-b})
+  for (let i = 0; i < deck.length; i++) {
+    // console.log('currenGroupItemNum',currenGroupItemNum,'maxGroupItemNum',maxGroupItemNum)
+    if(deck[i] != deck[i+1]){
+      currenGroupItemNum++
+      if(maxGroupItemNum === 0){
+        maxGroupItemNum = currenGroupItemNum
       }
-      return rule
+      
+      // console.log(maxGroupItemNum === currenGroupItemNum)
+      
+      if(maxGroupItemNum != currenGroupItemNum && maxGroupItemNum != 0){
+        return false
+      }
+    }else{
+      if(maxGroupItemNum != currenGroupItemNum && maxGroupItemNum != 0){
+        return false
+      }else{
+        currenGroupItemNum = 0
+      }
+    }
+    
+
+    if(deck[i] == deck[i+1]){
+      i++
+      currenGroupItemNum = currenGroupItemNum+2
     }
 
-    test('23')
 
+  }
+  
+  return true
+}
+    console.log('sss')
+    console.log(hasGroupsSizeX([1, 1, 1, 2, 2, 2, 3, 3]))
+    
+    // console.log(hasGroupsSizeX([0,0,0,1,1,1,2,2,2]))
+    // console.log(hasGroupsSizeX([1,1,2,2,2,2]))
+    
+    console.log('sss')
   </script>
 </head>
 <body>

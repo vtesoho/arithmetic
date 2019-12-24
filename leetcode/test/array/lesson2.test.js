@@ -9,3 +9,7 @@ test('hasGroupsSizeX:[1,1,1,2,2,2,3,3]', () => {
 test('hasGroupsSizeX:[1,1,2,2,2,2]', () => {
   expect(hasGroupsSizeX([1, 1, 2, 2, 2, 2])).toBe(true)
 })
+test('hasGroupsSizeX:[0,0,0,1,1,1,2,2,2]', () => {
+  expect(hasGroupsSizeX([0,0,0,1,1,1,2,2,2])).toBe(true)
+})
+
