@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script>
+var firstUniqChar = function(s) {
+  if(s.length === 0){
+    return -1
+  }
+  if(s.length === 1){
+    return 0
+  }
+  let a = s.split('')
+  let isRe = false
+  for (let i = 0; i < a.length; i++) {
+    if(a[i] === 0){
+      continue
+    }
+    for (let b = i+1; b < a.length; b++) {
+      if(a[i] === a[b]){
+        a[b] = 0
+        isRe = true
+      }
+    }
+    if(isRe){
+      a[i] = 0
+    }
+    if(a[i] != 0){
+      return i
+    }
+    isRe = false
+  }
+  return -1
+};
+    console.log('-------------------------')
+    console.log(firstUniqChar('leetcode')) //0
+    console.log(firstUniqChar('loveleetcode'))  //2
+    console.log(firstUniqChar('cc')) //-1
+    console.log(firstUniqChar('z')) //0
+    console.log(firstUniqChar("aadadaad"))  //-1
+    console.log(firstUniqChar("dddccdbba"))  //8
+    
+    console.log('-----------------------')
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
