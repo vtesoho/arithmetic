@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>三数之和</title>
+</head>
+<script>
+function longestCommonPrefix(strs){
+if(strs.length === 1){
+  return strs[0]
+}
+var res = strs[0]
+var minlen = 0
+for (var i = 0; i < strs.length; i++) {
+  strs[i] = strs[i].split('')
+  if(i >= 1){
+    lena = strs[i].length > strs[i-1].length ? strs[i-1].length : strs[i].length
+    len = minlen === 0 ? lena : lena > minlen ? minlen : lena
+    minlen = 0
+    for (var j = 0; j < len; j++) {
+      if(strs[i][j] === strs[i-1][j]){
+        minlen++
+      }else{
+        break;
+      }
+    }
+    if(minlen === 0){
+      break;
+    }
+  }
+}
+if(minlen === 0){
+  return ''
+}
+return res.substring(0, minlen)
+}
+console.log("a",longestCommonPrefix(["flower","flow","flight"]),"a")
+console.log("a",longestCommonPrefix(["dog","racecar","car"]),"a")
+console.log("a",longestCommonPrefix(["a"]),"a")
+console.log("a",longestCommonPrefix(["aca","cba"]),"a")
+
+
+
+
+// var res = strs[0]
+// var minlen = 0
+// for (var i = 0; i < strs.length; i++) {
+//   strs[i] = strs[i].split('')
+//   if(i >= 1){
+//     minlen = minlen === 0 ? strs[i].length > strs[i-1].length ? strs[i-1].length : strs[i].length : minlen
+//     for (var j = minlen-1; j >= 0; j--) {
+//       if(strs[i][j] !== strs[i-1][j]){
+//         minlen--
+        
+//       }
+//     }
+//   }
+// }
+// return res.substring(0, minlen)
+
+</script>
+<body>
+  
+</body>
+</html>
