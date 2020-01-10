@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>有效的括号</title>
+</head>
+<script>
+/**
+ * @param {number} n
+ * @return {string}
+ */
+var countAndSay = function(n) {
+  if(n === 1){
+    return '1'
+  }
+  arr = ['1']
+  for (var i = 0; i < n; i++) {
+    arr.push(handelNum(arr[i]))
+  }
+  return arr[n-1]
+};
+
+function handelNum(num){
+  arrnum = 1
+  arra = []
+  for (var i = 0; i < num.length; i++) {
+    if(num[i] === num[i + 1]){
+      arrnum++
+    }else{
+      arra.push(`${arrnum}`)
+      arra.push(num[i])
+      arrnum = 1
+    }
+  }
+  return arra.join('')
+}
+
+
+console.log(countAndSay(5))
+
+
+</script>
+<body>
+  
+</body>
+</html>
